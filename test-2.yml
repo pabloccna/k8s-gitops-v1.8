@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: w2
+  name: w2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: w2
+  template:
+    metadata:
+      labels:
+        app: w2
+    spec:
+      containers:
+      - image: centos:1.8
+        name: w2
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: w2
+  name: w2
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 30100
+  selector:
+    app: w2
+  type: NodePort
