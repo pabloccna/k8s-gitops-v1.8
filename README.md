@@ -1,5 +1,5 @@
 # k8s-gitops-v1.8
-![](256.png)
+![](pics/256.png)
 
 Esto va a ser un DEMO de gitOps para crear manifestos de K8s y deployar en un cluster
 
